@@ -1,0 +1,5 @@
+Current Dev Process:
+
+1. Composer Install
+2. Local Development
+3. Push to GitHub
