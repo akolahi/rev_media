@@ -1,8 +1,0 @@
-Current Dev Process:
-
-1. Composer Install
-2. Local Development
-3. Push to GitHub
-4. Pull into Production using CPanel
-5. run composer install
-

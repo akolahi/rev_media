@@ -12,6 +12,7 @@ layout:
     layout_settings:
       section_bg: ''
       section_padding: ''
+      section_margin: my-default
       section_custom_classes: ''
       container_style: container-full
       row_custom_classes: ''

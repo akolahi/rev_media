@@ -2,7 +2,7 @@ name: TheMAG (base theme)
 type: theme
 description: 'Responsive Blog/Magazine Theme.'
 core: 8.x
-version: 4.0.1
+version: 4.0.3
 base theme: charm
 hidden: false
 
@@ -20,11 +20,6 @@ libraries:
 #
 libraries-override:
   classy/messages: false
-
-  core/drupal.dialog.off_canvas:
-    css:
-      base:
-        misc/dialog/off-canvas.reset.css: assets/css/drupal/dialog/off-canvas.reset.css
 
   commerce_cart/cart_block:
     css:
@@ -61,10 +56,15 @@ libraries-override:
 # Libraries Extend
 #
 libraries-extend:
+  core/drupal.dialog.off_canvas:
+    - themag/drupal.dialog.off_canvas
+  layout_builder/drupal.layout_builder:
+    - themag/drupal.layout_builder
   commerce_cart/cart_block:
     - themag/commerce-cart-block
 
-
+# CKEditor styles
+#
 ckeditor_stylesheets:
   - assets/css/ckeditor.css
 

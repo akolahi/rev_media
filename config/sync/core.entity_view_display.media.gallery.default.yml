@@ -30,7 +30,6 @@ content:
       media_switch: ''
       view_mode: default
       ratio: ''
-      iframe_lazy: true
       image: ''
       title: ''
       link: ''

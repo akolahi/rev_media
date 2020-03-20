@@ -69,7 +69,7 @@
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
         "composer/installers": "^1.2",
-        "drush/drush": "^10.0",
+        "drush/drush": "^9.0.0",
         "oomphinc/composer-installers-extender": "^1.1",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
@@ -85,15 +85,15 @@
         "drupal/tb_megamenu": "1.x-dev",
         "drupal/layout_library": "^1.0@beta",
         "drupal/entityqueue": "^1.0@beta",
-        "thunder/thunder-distribution": "~3.3",
-        "drupal/node_view_permissions": "1.x-dev",
-        "drupal/switch_page_theme": "^1.0"
+        "thunder/thunder-distribution": "^3.0",
+        "zaporylie/composer-drupal-optimizations": "^1.1",
+        "drupal/devel": "^2.1"
     },
     "replace": {
       "npm-asset/shariff": "*"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.4"
+        "webflo/drupal-core-require-dev": "^8.8"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -134,9 +134,10 @@
         "patches": {
           "drupal/core": {
             "3045171: Form blocks rendered inside layout builder break save": "https://www.drupal.org/files/issues/2019-06-27/3045171-66.patch",
-            "3062742: Drag-and-drop reordering doesn't work if the region content is nested in other elements": "https://www.drupal.org/files/issues/2019-06-19/3062742_2.patch",
-            "3043319: Real world rendering of a layout builder page is much slower with calls to ::filterPluginDefinitionsByContexts in SectionStorageManager::findByContext": "https://www.drupal.org/files/issues/2019-03-26/3043319-5.patch",
-            "2981889: Performance Degradation in Layout Builder and other places likely": "https://www.drupal.org/files/issues/2019-05-24/layout_builder_performance-2981889-20.patch"
+            "3062742: Drag-and-drop reordering doesn't work if the region content is nested in other elements": "https://www.drupal.org/files/issues/2019-11-21/3062742_4.patch"
+          },
+          "drupal/layout_library" : {
+            "3098006: Removing sections not work correctly": "https://www.drupal.org/files/issues/2019-12-11/layout_library-3098006-6.patch"
           },
           "drupal/poll": {
             "2331515: Allow to show the poll question in the vote/result templates": "https://www.drupal.org/files/issues/2019-03-15/question-title-is-displayed-as-block-title-2923946-8.x-1.x-dev-7.patch"

@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.article
     - paragraphs.paragraphs_type.gallery
+    - paragraphs.paragraphs_type.gallery_grid
     - paragraphs.paragraphs_type.image
     - paragraphs.paragraphs_type.instagram
     - paragraphs.paragraphs_type.link
@@ -31,6 +32,7 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       text: text
       quote: quote
@@ -41,6 +43,7 @@ settings:
       image: image
       video: video
       pinterest: pinterest
+      gallery_grid: gallery_grid
     target_bundles_drag_drop:
       text:
         enabled: true
@@ -69,4 +72,7 @@ settings:
       pinterest:
         enabled: true
         weight: 9
+      gallery_grid:
+        enabled: true
+        weight: 12
 field_type: entity_reference_revisions

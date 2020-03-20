@@ -126,11 +126,3 @@ function themag_layouts_plugin_filter_layout__layout_builder_alter(&$definitions
     }
   }
 }
-
-
-/**
- * Implements hook_page_attachments().
- */
-function themag_layouts_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'themag_layouts/themag_layout_builder';
-}

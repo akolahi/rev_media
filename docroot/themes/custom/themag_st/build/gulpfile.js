@@ -3,50 +3,57 @@
  * Gulp Tasks
  */
 
-var gulp = require('gulp');
-var notify = require('gulp-notify');
-var sourcemaps = require('gulp-sourcemaps');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-
+const { src, dest, series, parallel, watch} = require("gulp");
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 
 // Variables
 // ------------------------------.
 var vendor = '../../themag/themes/charm/vendor' ,
   themag = '../../themag/_src/',
   assets = '../assets',
-  src = '../_src';
+  source = '../_src';
 
 var config = {
   'scss': {
-    'src': src + '/scss/**/*.scss',
-    'watchDir': src + '/scss/**/*.*',
+    'src': source + '/scss/**/*.scss',
+    'watchDir': source + '/scss/**/*.*',
     'includePath': [vendor, themag],
     'sourcemaps': 'sourcemaps',
     'dest': assets + '/css'
   }
 };
 
-// Compile SCSS/SASS
-// ------------------------------.
-gulp.task('scss', function () {
-  return gulp.src(config.scss.src)
+function scss() {
+  sass.compiler = require('node-sass');
+  return src(config.scss.src)
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'nested',
+      outputStyle: 'expanded',
       includePaths: config.scss.includePath
-    }))
-    .on("error", notify.onError(function (error) {
-      return "Error: " + error.message;
-    }))
+    }).on('error', sass.logError))
     .pipe(autoprefixer('last 2 version', 'ie 11'))
     .pipe(sourcemaps.write(config.scss.sourcemaps))
-    .pipe(gulp.dest(config.scss.dest))
-});
+    .pipe(dest(config.scss.dest));
+}
 
+function scssCompressed() {
+  sass.compiler = require('node-sass');
+  return src(config.scss.src)
+    .pipe(sass({
+      outputStyle: 'compressed',
+      includePaths: [config.scss.includePath]
+    }).on('error', sass.logError))
+    .pipe(autoprefixer('last 2 version', 'ie 11'))
+    .pipe(dest(config.scss.dest));
+}
 
-// Watch
-// ------------------------------.
-gulp.task('watch', function () {
-  gulp.watch(config.scss.watchDir, ['scss']);
-});
+function watcher() {
+  watch([config.scss.src], scssCompressed);
+}
+
+exports.scss = scss;
+exports.scssCompressed = scssCompressed;
+exports.watcher = watcher;
+exports.default = watcher;

@@ -21,6 +21,7 @@ matchers:
       include_unpublished: false
       substitution_type: canonical
       metadata: Article
+      limit: 100
   54dba6c0-a78b-4f93-8955-b083b930a2ff:
     uuid: 54dba6c0-a78b-4f93-8955-b083b930a2ff
     id: 'entity:media'
@@ -33,3 +34,4 @@ matchers:
       group_by_bundle: true
       substitution_type: canonical
       metadata: Media
+      limit: 100

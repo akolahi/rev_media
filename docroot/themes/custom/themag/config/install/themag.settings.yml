@@ -12,6 +12,8 @@ themag_header_banner: '<img src="http://via.placeholder.com/728x90">'
 themag_sticky_header: 1
 themag_header_user_icon: 1
 themag_header_search_icon: 1
+themag_header_search_icon_as_link: 0
+themag_search_page_path: ''
 themag_header_cart_icon: 1
 
 # Social Media Pages

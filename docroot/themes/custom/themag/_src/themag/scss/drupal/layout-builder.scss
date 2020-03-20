@@ -1,10 +1,10 @@
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
 //
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/mixins';
+//@import 'bootstrap/scss/functions';
+//@import 'bootstrap/scss/variables';
+//@import 'bootstrap/scss/mixins';
 
 $builder-base-color: lighten(#90a4ae, 10%);
 
@@ -16,52 +16,6 @@ $builder-add-section-button-color: #FFFFFF;
 $builder-transition: all .2s ease-in-out;
 
 
-// Off-canvas
-
-.ui-widget {
-
-  &.ui-dialog.ui-dialog-off-canvas {
-    background: #263238;
-    font-size: 16px;
-
-    .ui-dialog-titlebar {
-      background: darken(#263238, 10%);
-    }
-  }
-}
-
-#drupal-off-canvas {
-  *, *:not(div) {
-    background: transparent;
-  }
-
-  .inline-block-create-button,
-  .inline-block-list__item {
-    background-color: darken(#263238, 5%);
-    &:hover {
-      background-color: darken(#263238, 10%);
-    }
-  }
-
-  .description,
-  .form-item .description,
-  .details-description {
-    color: rgba(#FFF, .4);
-  }
-
-  summary {
-    display: block;
-
-    &:hover {
-      background: darken(#263238, 5%);
-    }
-  }
-  details[open] > summary {
-    background: darken(#263238, 10%);
-  }
-}
-
-
 // Builder
 
 .layout-builder-powered-page {
@@ -69,7 +23,6 @@ $builder-transition: all .2s ease-in-out;
     display: none;
   }
 }
-
 
 [aria-label="Layout Builder tools"] {
   display: flex;
@@ -80,26 +33,8 @@ $builder-transition: all .2s ease-in-out;
   background: #eceff1;
 }
 
-.layout-builder-discard-changes,
-.layout-builder-revert-overrides {
-
-  &.confirmation {
-    max-width: 600px;
-    margin: 3rem auto;
-    padding: 3rem;
-    border: 1px solid #cfd8dc;
-    font-size: 1.5rem;
-    text-align: center;
-
-    .form-actions {
-      margin-top: 1rem;
-    }
-  }
-}
-
-
 //.layout-builder__add-block.is-layout-builder-highlighted,
-  //.layout-builder__add-section.is-layout-builder-highlighted,
+//.layout-builder__add-section.is-layout-builder-highlighted,
 .layout-builder__layout.is-layout-builder-highlighted::before,
 .layout-builder__layout.is-layout-builder-highlighted,
 .layout-builder-block.is-layout-builder-highlighted {
@@ -124,7 +59,7 @@ $builder-transition: all .2s ease-in-out;
 
     a {
       display: inline-block;
-      background-image: url("../images/plus.svg");
+      background-image: url("../../images/plus.svg");
       background-position: 20px center;
       background-color: $builder-add-section-button-bg;
       padding: .5rem 1.5rem .5rem 2.5rem;
@@ -181,7 +116,7 @@ $builder-transition: all .2s ease-in-out;
   }
 
   &__link--remove {
-    background: url(../images/ex.svg) darken($builder-base-color, 10%) center center / 16px 16px no-repeat;
+    background: url(../../images/ex.svg) darken($builder-base-color, 10%) center center / 16px 16px no-repeat;
     width: 40px;
     margin: 0;
     border-radius: 0;
@@ -189,7 +124,7 @@ $builder-transition: all .2s ease-in-out;
     border: none;
     left: 0;
     &:hover {
-      background: url(../images/ex.svg) darken($builder-base-color, 30%) center center / 16px 16px no-repeat;
+      background: url(../../images/ex.svg) darken($builder-base-color, 30%) center center / 16px 16px no-repeat;
     }
   }
 
@@ -275,18 +210,18 @@ $builder-transition: all .2s ease-in-out;
     font-size: 14px;
     line-height: 1.25;
 
-     a {
-       display: flex;
-       align-items: center;
-       margin: 0 -10px;
-       padding: 10px 10px;
-       color: #FFF;
-       text-decoration: none;
-       transition: background-color .125s ease-in-out;
-       &:hover {
-         background-color: rgba(#000, .3);
-       }
-     }
+    a {
+      display: flex;
+      align-items: center;
+      margin: 0 -10px;
+      padding: 10px 10px;
+      color: #FFF;
+      text-decoration: none;
+      transition: background-color .125s ease-in-out;
+      &:hover {
+        background-color: rgba(#000, .3);
+      }
+    }
 
     .layout-icon {
       flex: 0 0 auto;

@@ -12,9 +12,9 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // Variables
 // ------------------------------.
-const vendor = './../themes/charm/vendor' ,
-      assets = './../assets',
-      source = './../_src/themag';
+const vendor = './themes/charm/vendor' ,
+      assets = './assets',
+      source = './_src/themag';
 
 const config = {
   'scss': {
@@ -58,7 +58,7 @@ function scss() {
 }
 
 
-function scssCompressed() {
+function scssBuild() {
   sass.compiler = require('node-sass');
   return src(config.scss.src)
     .pipe(sass({
@@ -71,13 +71,13 @@ function scssCompressed() {
 
 
 function watcher() {
-  watch([config.scss.src], scssCompressed);
+  watch([config.scss.src], scss);
 }
 
 
 exports.scss = scss;
-exports.scssCompressed = scssCompressed;
+exports.scssBuild = scssBuild;
 exports.scssLint = scssLint;
 
 exports.watcher = watcher;
-exports.default = scss;
+exports.default = scssBuild;

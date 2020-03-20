@@ -40,6 +40,8 @@ function themag_preprocess(&$variables, $hook) {
   $variables['themag']['header_banner'] = theme_get_setting('themag_header_banner');
   $variables['themag']['header_user_icon'] = theme_get_setting('themag_header_user_icon');
   $variables['themag']['header_search_icon'] = theme_get_setting('themag_header_search_icon');
+  $variables['themag']['header_search_icon_as_link'] = theme_get_setting('themag_header_search_icon_as_link');
+  $variables['themag']['search_page_path'] = theme_get_setting('themag_search_page_path');
   $variables['themag']['header_cart_icon'] = theme_get_setting('themag_header_cart_icon');
 
   // Sticky features

@@ -7,9 +7,15 @@
     {% endif %}
 
     {% if themag.header_search_icon and themag.modules.search %}
-      <button class="header__toggleable-button js-toggle-search">
-        <i class="fas fa-search"></i>
-      </button>
+      {% if themag.header_search_icon_as_link %}
+        <a class="header__toggleable-button" href="{{ themag.search_page_path }}">
+          <i class="fas fa-search"></i>
+        </a>
+      {% else %}
+        <button class="header__toggleable-button js-toggle-search">
+          <i class="fas fa-search"></i>
+        </button>
+      {% endif %}
     {% endif %}
 
     {% if themag.header_cart_icon and themag.modules.commerce_cart %}

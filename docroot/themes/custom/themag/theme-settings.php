@@ -33,29 +33,6 @@ function themag_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
     '#group' => 'themag',
   );
 
-
-  // ------------------------
-  // Search settings.
-  // ------------------------
-  $form['general']['search'] = array(
-    '#type' => 'details',
-    '#title' => t('Search Form'),
-    '#weight' => 10,
-    '#open' => TRUE,
-  );
-
-  $form['general']['search']['themag_search_button_text'] = array(
-    '#type' => 'textfield',
-    '#title'  => t('Search button text'),
-    '#default_value' => theme_get_setting('themag_search_button_text'),
-  );
-
-  $form['general']['search']['themag_search_field_placeholder_text'] = array(
-    '#type' => 'textfield',
-    '#title'  => t('Search field placeholder text'),
-    '#default_value' => theme_get_setting('themag_search_field_placeholder_text'),
-  );
-
   // ------------------------
   // Options.
   // ------------------------
@@ -169,20 +146,62 @@ function themag_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
 
   $form['header']['header_element_display']['themag_header_user_icon'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show User Menu toggle button'),
+    '#title' => t('Show user menu'),
     '#default_value' => theme_get_setting('themag_header_user_icon'),
   );
 
   $form['header']['header_element_display']['themag_header_search_icon'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show Search toggle button'),
+    '#title' => t('Show search icon'),
     '#default_value' => theme_get_setting('themag_header_search_icon'),
     '#disabled' => (\Drupal::service('module_handler')->moduleExists('search') ? '' : 'disabled'),
   );
 
+  $form['header']['header_element_display']['search_settings'] = array(
+    '#type' => 'details',
+    '#title' => t('Search settings'),
+    '#open' => TRUE,
+    '#states' => array(
+      'visible' => array(
+        array(
+          ':input[name="themag_header_search_icon"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+  );
+
+  $form['header']['header_element_display']['search_settings']['themag_header_search_icon_as_link'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Use the search icon as a link to the search page instead of the search form toggle button'),
+    '#default_value' => theme_get_setting('themag_header_search_icon_as_link'),
+    '#disabled' => (\Drupal::service('module_handler')->moduleExists('search') ? '' : 'disabled'),
+    '#states' => array(
+      'visible' => array(
+        array(
+          ':input[name="themag_header_search_icon"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+  );
+
+  $form['header']['header_element_display']['search_settings']['themag_search_page_path'] = array(
+    '#type' => 'url',
+    '#title' => t('Search page URL'),
+    '#description' => t('Enter URL for the search page. E.g. http://example.com/search'),
+    '#default_value' => theme_get_setting('themag_search_page_path'),
+    '#disabled' => (\Drupal::service('module_handler')->moduleExists('search') ? '' : 'disabled'),
+    '#states' => array(
+      'visible' => array(
+        array(
+          ':input[name="themag_header_search_icon_as_link"]' => array('checked' => TRUE),
+        ),
+      ),
+    ),
+  );
+
   $form['header']['header_element_display']['themag_header_cart_icon'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Show Shopping Cart toggle button'),
+    '#title' => t('Show shopping cart'),
     '#default_value' => theme_get_setting('themag_header_cart_icon'),
     '#disabled' => (\Drupal::service('module_handler')->moduleExists('commerce_cart') ? '' : 'disabled'),
   );
@@ -241,6 +260,29 @@ function themag_form_system_theme_settings_alter(&$form, FormStateInterface &$fo
       '#default_value' => theme_get_setting('themag_' . $sm_page . '_link_title'),
     );
   }
+
+
+  // ========================
+  // Search settings.
+  // ========================
+
+  $form['search_form'] = array(
+    '#type' => 'details',
+    '#title' => t('Search form'),
+    '#group' => 'themag',
+  );
+
+  $form['search_form']['search']['themag_search_button_text'] = array(
+    '#type' => 'textfield',
+    '#title'  => t('Search button text'),
+    '#default_value' => theme_get_setting('themag_search_button_text'),
+  );
+
+  $form['search_form']['search']['themag_search_field_placeholder_text'] = array(
+    '#type' => 'textfield',
+    '#title'  => t('Search field placeholder text'),
+    '#default_value' => theme_get_setting('themag_search_field_placeholder_text'),
+  );
 
 
 
